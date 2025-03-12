@@ -1,8 +1,15 @@
+import { currency } from "@/actions/fetch"; 
 
-export default function Home() {
-  return (
-    <div>
-      <h1>Home</h1>
-    </div>
-  );
+
+export default async function Home(){
+    const response = await fetch('https://brsapi.ir/FreeTsetmcBourseApi/Api_Free_Gold_Currency_v2.json') ; 
+    const data = await response.json() ; 
+    const {...alldata}  = data ; 
+    currency(alldata) ;
+
+    // carts 
+    return(
+    <>
+        <p>getting data</p>
+    </>)
 }

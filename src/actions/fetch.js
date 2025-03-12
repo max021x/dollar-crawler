@@ -3,7 +3,7 @@ import { insertCurrency  , insertbBourse } from "@/lib/db";
 export async function currency(allData) {
     // take the data form api 
     const { gold, currency, cryptocurrency } = allData;
-    // const curentdate = gold[0]?.date;
+
     try {
         
         await currency.map(cur => {
@@ -42,6 +42,7 @@ export async function currency(allData) {
 
     } catch (error) {
         console.log(error) ; 
+        return {message:"error"  , error:error}
     }
     
 

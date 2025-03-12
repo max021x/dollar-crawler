@@ -6,6 +6,8 @@ const sqlConfig = {
   password: process.env.DB_PWD,
   database: process.env.DB_NAME,
   server: process.env.DB_SERVER,
+  port: +process.env.DB_PORT,
+  
   pool: {
     max: 10,
     min: 0,
@@ -14,17 +16,6 @@ const sqlConfig = {
   options: {
     encrypt: false, // for azure
     trustServerCertificate: false // change to true for local dev / self-signed certs
-  }
-}
-
-
-export async function getConnection() {
-  try {
-    await sql.connect(sqlConfig)
-    console.log('Connected') ; 
-    await sql.close() ; 
-  } catch (error) {
-    console.log(error)
   }
 }
 
